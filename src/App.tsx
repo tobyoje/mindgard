@@ -1,11 +1,11 @@
-import React from 'react';
-
-import StartPage from './components/StartPage/StartPage';
+import React from "react";
+import "./App.scss";
+import StartPage from "./components/StartPage/StartPage";
 
 function App() {
   return (
     <div className="App">
-     <StartPage/>
+      <StartPage />
     </div>
   );
 }

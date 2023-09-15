@@ -1,0 +1,55 @@
+@use "../../styles/partials/responsive" as *;
+
+.startpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0e172d;
+
+  &__image {
+    width: 20rem;
+    object-fit: cover;
+    @include media-tablet {
+      width: 45rem;
+    }
+  }
+}
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  display: flex;
+  width: 200px;
+  margin-top: 5rem;
+
+  @include media-tablet {
+    margin-top: 10rem;
+
+    width: 500px;
+  }
+
+  &__value {
+    animation: load 3s normal forwards;
+    border-radius: 100px;
+    background: #3661ac;
+    height: 0.5rem;
+    width: 0;
+
+    @include media-tablet {
+      height: 1rem;
+    }
+  }
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

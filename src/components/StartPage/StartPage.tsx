@@ -3,8 +3,8 @@ import siteLogo from "../../assets/images/mindgard_logo_white.png";
 import { useEffect, useState } from "react";
 import Dashboard from "../Dashboard/Dashboard";
 
-const StartPage = () => {
-  const [showStartComponent, setShowStartComponent] = useState(true);
+const StartPage: React.FC = () => {
+  const [showStartComponent, setShowStartComponent] = useState<boolean>(true);
 
   useEffect(() => {
     setTimeout(() => {

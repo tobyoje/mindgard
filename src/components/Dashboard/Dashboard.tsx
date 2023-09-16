@@ -1,11 +1,20 @@
-import { useEffect, useState } from "react";
-import StartPage from "../StartPage/StartPage";
+import "./Dashboard.scss";
+import SideBar from "../SideBar/SideBar";
+import MainContent from "../MainContent/MainContent";
+import { useState } from "react";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
-    <>
-      <h1>Dashboard</h1>
-    </>
+    <section className="dashboard">
+      <MainContent toggleSidebar={toggleSidebar} />
+      {showSidebar && <SideBar toggleSidebar={toggleSidebar} />}
+    </section>
   );
 };
 

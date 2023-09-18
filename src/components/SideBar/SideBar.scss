@@ -2,9 +2,11 @@
 
 .sidebar {
   height: 100vh;
-  width: 70%;
   margin-left: 5rem;
-  position: relative;
+  position: absolute;
+  right: 0;
+  color: white;
+  z-index: 4;
 
   @include media-tablet {
     width: 60%;
@@ -12,6 +14,7 @@
 
   @include media-desktop {
     width: 40%;
+    width: 450px;
   }
 
   &__content {
@@ -19,7 +22,6 @@
     height: 100vh;
     padding: 4rem;
     background-color: #0e172d;
-    position: fixed;
     right: 0;
 
     @include media-tablet {
@@ -27,7 +29,7 @@
     }
 
     @include media-desktop {
-      width: 35%;
+      width: 100%;
     }
   }
 
@@ -38,7 +40,6 @@
   }
 
   &__title {
-    color: white;
     font-weight: 500;
     font-size: 1.5rem;
     letter-spacing: 0.08rem;
@@ -49,5 +50,9 @@
     border: 0;
     border-radius: 5px;
     padding: 0.6rem 1rem;
+  }
+
+  &__node-info {
+    margin-top: 4rem;
   }
 }

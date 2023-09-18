@@ -1,19 +1,16 @@
 @use "../../styles/partials/responsive" as *;
 
-
 .maincontent {
   flex-grow: 1;
   padding: 1.5rem;
-
   width: 100%;
 
-  @include media-desktop{
-    padding: 10rem;
+  @include media-desktop {
+    padding: 0rem;
   }
 }
 
 .graph-section {
-    margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;

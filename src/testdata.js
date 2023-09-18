@@ -64,7 +64,6 @@ export const nodes = [
   },
   {
     id: "11",
-    type: "FcNodes",
     data: { label: "FC2", parameters: { units: 128 } },
     position: { x: 650, y: 200 },
   },

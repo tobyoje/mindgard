@@ -1,5 +1,5 @@
 import "./MainContent.scss";
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
 import ReactFlow, { MiniMap, Controls, Background } from "reactflow";
 import convNode from "../../customnodes/ConvNodes/ConvNodes.js";
 import FcNodes from "../../customnodes/FcNodes/FcNodes.js";
@@ -9,14 +9,11 @@ import outputCustom from "../../customnodes/Output/Output.js";
 
 import "reactflow/dist/style.css";
 import { nodes as initialNodes, edges as initialEdges } from "../../testdata";
+import SideBar from "../SideBar/SideBar";
 
 const minimapStyle = {
   height: 120,
 };
-
-interface MainContentProps {
-  toggleSidebar: () => void;
-}
 
 const nodeTypes = {
   inputCustom: inputCustom,
@@ -26,28 +23,20 @@ const nodeTypes = {
   outputCustom: outputCustom,
 };
 
-const MainContent: React.FC<MainContentProps> = ({ toggleSidebar }) => {
-  const defaultEdgeOptions = { animated: true };
+const MainContent: React.FC = () => {
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
+  const [selectedNode, setSelectedNode] = useState(null);
 
-  const toggleButtonRef = useRef<HTMLButtonElement>(null);
-  const handleToggleClick = () => {
-    toggleSidebar();
-    if (toggleButtonRef.current) {
-      toggleButtonRef.current.focus();
-    }
+  const toggleSidebar = (event: any, node: any) => {
+    setShowSidebar(true);
+    setSelectedNode(node);
   };
+
+  const defaultEdgeOptions = { animated: true };
 
   return (
     <>
       <section className="maincontent">
-        <button
-          ref={toggleButtonRef}
-          onClick={handleToggleClick}
-          aria-label="Toggle Sidebar"
-        >
-          Toggle Sidebar
-        </button>
-
         <div className="graph-section">
           <div className="graph-section__container">
             <ReactFlow
@@ -55,12 +44,18 @@ const MainContent: React.FC<MainContentProps> = ({ toggleSidebar }) => {
               edges={initialEdges}
               nodeTypes={nodeTypes}
               defaultEdgeOptions={defaultEdgeOptions}
-              onNodeClick={handleToggleClick}
+              onNodeClick={toggleSidebar}
               fitView
             >
               <MiniMap style={minimapStyle} zoomable pannable />
               <Controls />
               <Background color="#aaa" gap={16} />
+              {showSidebar && (
+                <SideBar
+                  selectedNode={selectedNode}
+                  setShowSidebar={setShowSidebar}
+                />
+              )}
             </ReactFlow>
           </div>
         </div>

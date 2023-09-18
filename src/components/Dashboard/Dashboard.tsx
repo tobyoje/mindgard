@@ -5,6 +5,10 @@ import { useState } from "react";
 
 const Dashboard: React.FC = () => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
+  const [showNode, setShowNode] = useState("");
+
+
+
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);

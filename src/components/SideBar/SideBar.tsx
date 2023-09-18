@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import "./SideBar.scss";
+import { ReactFlow } from "reactflow";
 
 interface SidebarProps {
   toggleSidebar: () => void;

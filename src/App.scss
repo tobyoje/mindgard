@@ -1,2 +1,10 @@
 @use "./styles/partials/resets" as *;
 @use "./styles/partials/responsive" as *;
+
+
+.react-flow__node-group{
+    border-color: #3b7bff;
+background-color: #21283a;
+color: #fff;
+border-width: 2px;
+}

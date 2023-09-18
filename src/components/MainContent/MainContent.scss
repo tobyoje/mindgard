@@ -1,5 +1,25 @@
+@use "../../styles/partials/responsive" as *;
+
+
 .maincontent {
   flex-grow: 1;
-  padding: 2rem;
+  padding: 1.5rem;
+
   width: 100%;
+
+  @include media-desktop{
+    padding: 10rem;
+  }
+}
+
+.graph-section {
+    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__container {
+    width: 100vw;
+    height: 100vh;
+  }
 }

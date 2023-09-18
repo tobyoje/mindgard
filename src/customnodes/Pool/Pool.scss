@@ -1,0 +1,33 @@
+.pool {
+  display: flex;
+  align-items: center;
+  background-color: #747f9a;
+  border: 1px solid #747f9a;
+  border-radius: 10px;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #747f9a;
+    height: 40px;
+    width: 40px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 0 9px 9px 0;
+    height: 40px;
+    width: 100px;
+    font-size: 10px;
+    line-height: 15px;
+    padding-left: 10px;
+  }
+}

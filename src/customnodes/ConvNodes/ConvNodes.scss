@@ -4,6 +4,7 @@
   background-color: #36589e;
   border: 1px solid #36589e;
   border-radius: 10px;
+  border-width: 1px;
 
   &__left {
     display: flex;
@@ -30,4 +31,9 @@
     line-height: 15px;
     padding-left: 10px;
   }
+}
+
+.selected {
+  border: 1px solid black;
+  border-radius: 12px;
 }

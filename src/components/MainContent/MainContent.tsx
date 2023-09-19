@@ -1,6 +1,16 @@
 import "./MainContent.scss";
-import { useState } from "react";
-import ReactFlow, { MiniMap, Controls, Background } from "reactflow";
+import { useCallback, useState } from "react";
+import ReactFlow, {
+  MiniMap,
+  Controls,
+  Background,
+  applyNodeChanges,
+  applyEdgeChanges,
+  OnEdgesChange,
+  OnNodesChange,
+  Node,
+  Edge,
+} from "reactflow";
 import convNode from "../../customnodes/ConvNodes/ConvNodes.js";
 import FcNodes from "../../customnodes/FcNodes/FcNodes.js";
 import Pool from "../../customnodes/Pool/Pool.js";
@@ -26,6 +36,17 @@ const nodeTypes = {
 const MainContent: React.FC = () => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [nodes, setNodes] = useState<Node[]>(initialNodes);
+  const [edges, setEdges] = useState<Edge[]>(initialEdges);
+
+  const onNodesChange: OnNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    [setNodes]
+  );
+  const onEdgesChange: OnEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    [setEdges]
+  );
 
   const toggleSidebar = (event: any, node: any) => {
     setShowSidebar(true);
@@ -40,10 +61,12 @@ const MainContent: React.FC = () => {
         <div className="graph-section">
           <div className="graph-section__container">
             <ReactFlow
-              nodes={initialNodes}
-              edges={initialEdges}
+              nodes={nodes}
+              edges={edges}
               nodeTypes={nodeTypes}
               defaultEdgeOptions={defaultEdgeOptions}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
               onNodeClick={toggleSidebar}
               fitView
             >

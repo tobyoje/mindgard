@@ -126,4 +126,17 @@
       border-left: 15px solid white;
     }
   }
+
+
+  &__watermark{
+display: flex;
+margin-top: 10rem;
+  }
+
+  &__logo{
+    width: 8rem;
+    margin-left: 0.5rem;
+
+  }
+  
 }

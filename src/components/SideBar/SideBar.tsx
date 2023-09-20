@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import "./SideBar.scss";
 import { ReactFlow } from "reactflow";
+import siteLogo from "../../assets/images/mindgard_logo_white.png";
 
 interface SidebarProps {
   selectedNode: any;
@@ -114,6 +115,11 @@ const SideBar: React.FC<SidebarProps> = ({ setShowSidebar, selectedNode }) => {
               )}
           </ul>
         </div>
+
+        <section className="sidebar__watermark">
+          <p>Powered by </p>
+          <img className="sidebar__logo" src={siteLogo} alt="Mindgard Logo" />
+        </section>
       </div>
     </aside>
   );

@@ -1,4 +1,6 @@
 import "./MainContent.scss";
+import SideBar from "../SideBar/SideBar";
+import "reactflow/dist/style.css";
 import { useCallback, useState } from "react";
 import ReactFlow, {
   MiniMap,
@@ -16,10 +18,10 @@ import FcNodes from "../../customnodes/FcNodes/FcNodes.js";
 import Pool from "../../customnodes/Pool/Pool.js";
 import inputCustom from "../../customnodes/Input/Input.js";
 import outputCustom from "../../customnodes/Output/Output.js";
+import localData from "../../testdata.json";
 
-import "reactflow/dist/style.css";
-import { nodes as initialNodes, edges as initialEdges } from "../../testdata";
-import SideBar from "../SideBar/SideBar";
+const initialNodes = localData.nodes;
+const initialEdges = localData.edges;
 
 const minimapStyle = {
   height: 120,

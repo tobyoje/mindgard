@@ -127,16 +127,13 @@
     }
   }
 
-
-  &__watermark{
-display: flex;
-margin-top: 10rem;
+  &__watermark {
+    display: flex;
+    margin-top: 10rem;
   }
 
-  &__logo{
+  &__logo {
     width: 8rem;
     margin-left: 0.5rem;
-
   }
-  
 }

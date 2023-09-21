@@ -1,5 +1,4 @@
 import "./Dashboard.scss";
-import SideBar from "../SideBar/SideBar";
 import MainContent from "../MainContent/MainContent";
 import { useState } from "react";
 

@@ -10,6 +10,8 @@ import ReactFlow, {
   applyEdgeChanges,
   OnEdgesChange,
   OnNodesChange,
+  addEdge,
+  OnConnect,
   Node,
   Edge,
 } from "reactflow";
@@ -50,6 +52,11 @@ const MainContent: React.FC = () => {
     [setEdges]
   );
 
+  const onConnect: OnConnect = useCallback(
+    (connection) => setEdges((eds) => addEdge(connection, eds)),
+    [setEdges]
+  );
+
   const toggleSidebar = (event: any, node: any) => {
     setShowSidebar(true);
     setSelectedNode(node);
@@ -69,6 +76,7 @@ const MainContent: React.FC = () => {
               defaultEdgeOptions={defaultEdgeOptions}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
+              onConnect={onConnect}
               onNodeClick={toggleSidebar}
               fitView
             >

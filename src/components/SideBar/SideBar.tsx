@@ -1,6 +1,4 @@
-import { useRef } from "react";
 import "./SideBar.scss";
-import { ReactFlow } from "reactflow";
 import siteLogo from "../../assets/images/mindgard_logo_white.png";
 
 interface SidebarProps {
@@ -12,8 +10,6 @@ const SideBar: React.FC<SidebarProps> = ({ setShowSidebar, selectedNode }) => {
   const handleClose = () => {
     setShowSidebar(false);
   };
-
-  console.log(selectedNode);
 
   return (
     <aside className="sidebar">
